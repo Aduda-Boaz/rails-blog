@@ -15,6 +15,11 @@ RSpec.describe Post, type: :model do
     expect(subject).to_not be_valid
   end
 
+  it 'Validates the length of Title to be less than or equal to 250' do
+    subject.title = 'a' * 251
+    expect(subject).to_not be_valid
+  end
+
   it 'Validates increament of post counter after creation of post' do
     user = User.create(name: 'Philip', photo: 'https://...', bio: 'physician from Britain')
     expect(user.post_count).to eq(1)

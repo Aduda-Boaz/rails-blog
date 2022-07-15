@@ -7,7 +7,7 @@ class Post < ApplicationRecord
     comments.order(created_at: :desc).limit(6)
   end
 
-  validates :title, presence: true
+  validates :title, presence: true, length: { maximum: 250 }
   validates :comment_count, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   after_save :update_post_count
