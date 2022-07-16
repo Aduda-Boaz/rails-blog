@@ -24,4 +24,9 @@ RSpec.describe Post, type: :model do
     user = User.create(name: 'Philip', photo: 'https://...', bio: 'physician from Britain')
     expect(user.post_count).to eq(1)
   end
+
+  it 'Validates recent comment method' do
+    comment = Comment.create(post_id: subject.id, user_id: 1, body: 'This is my first comment')
+    expect(subject.recent_comments).to eq([comment])
+  end
 end

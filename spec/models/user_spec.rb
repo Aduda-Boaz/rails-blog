@@ -5,6 +5,13 @@ RSpec.describe User, type: :model do
 
   before { subject.save }
 
+  describe 'Validation' do
+    it 'Name must not be empty' do
+      subject.name = ''
+      expect(subject).to_not be_valid
+    end
+  end
+
   it 'Validates the presence of Name' do
     subject.name = nill
     expect(subject).to_not be_valid
