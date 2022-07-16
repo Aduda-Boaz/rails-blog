@@ -2,6 +2,8 @@ class Like < ApplicationRecord
   belongs_to :user, foreign_key: 'author_id'
   belongs_to :post, foreign_key: 'post_id'
 
+  validates :user_id, presence: true
+
   after_save :update_post_likes_count
 
   private
