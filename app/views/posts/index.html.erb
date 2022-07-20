@@ -1,6 +1,12 @@
-<h3>Welcome to my first post</h3>
-<% @posts.each do |post| %>
-    Title: <%= post.title %><br>
-    Text: <%= post.text %><br>
+d<h3>Welcome to my first post</h3>
+<div id="postTemp>
+  <%= render partial: "shared/single_user", locals: { user: @user } %>
+  <% @user.post.each do |post| %>
+    <%= render partial: "shared/single_post", locals: { post: post } %>
+    <% post.comments.each do |comment| %>
+         <label><%= comment.text%></label>
+     <% end %>
   <% end %>
-  
+  <%= button_to "See all posts"%>
+</div>
+
