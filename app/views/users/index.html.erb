@@ -1,1 +1,4 @@
 <h1>Hello, great User of Ruby on rails</h1>
+<% @users.each do |user| %>
+  Name: <%= user.name %><br>
+<% end %>

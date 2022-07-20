@@ -1,1 +1,6 @@
 <h3>Welcome to my first post</h3>
+<% @posts.each do |post| %>
+    Title: <%= post.title %><br>
+    Text: <%= post.text %><br>
+  <% end %>
+  
