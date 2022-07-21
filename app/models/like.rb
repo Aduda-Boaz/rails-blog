@@ -1,6 +1,6 @@
 class Like < ApplicationRecord
   belongs_to :user, foreign_key: 'author_id'
-  belongs_to :post, foreign_key: 'post_id'
+  belongs_to :post
 
   validates :user_id, presence: true
 
@@ -9,6 +9,6 @@ class Like < ApplicationRecord
   private
 
   def update_post_likes_count
-    post.update_likes_count
+    post.increment!(:likes_count)
   end
 end

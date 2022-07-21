@@ -1,1 +1,39 @@
-<p>Please continue learning ruby on rails</p>
+<div class="card">
+  <div class="img">
+    <%= image_tag(@user.photo, width: "130px") %>
+  </div>
+  <div class="user_card">
+    <div class="user_name"><%= @user.name %></div>
+    <div class="user_posts">Posts<%= @user.post_count %></div>
+  </div>
+</div>
+
+<div class="user_bio">
+  <div class="user_bio_title">User Bio</div>
+  <p class="user_info"><%= @user.bio %></p>
+</div>
+
+<%= @count=0 %>
+
+<div class="user_posts">
+  <%= @user.recent_posts.each do |post| %>
+    <%= @count+=1 %>
+    <div class="post_card">
+      <div class="post_title">
+        <%= post.title %>
+      </div>
+      <div class="post_body">
+        <%= post.text %>
+      </div>
+      <div class="post_info">
+        <div class="comments_count">Comments: <%= post.comments_count %></div>
+        <div class="likes_count">Likes: <%= post.likes_count %></div>
+      </div>
+      <br />
+    </div>
+  <% end %>
+</div>
+
+<div class="post_button">
+  <button class="post_button">See all posts</button>
+</div>

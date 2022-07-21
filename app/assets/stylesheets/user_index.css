@@ -1,0 +1,30 @@
+.card {
+  display: flex;
+  width: 50%;
+  margin: 20px auto;
+}
+
+.img {
+  width: 30px;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.user_card {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border-radius: 2px;
+}
+
+.user_name {
+  font-size: 16px;
+  align-self: center;
+  width: 60%;
+}
+
+.user_posts {
+  font-size: 16px;
+  align-self: end;
+  margin: 0 30px;
+}
