@@ -1,5 +1,5 @@
-/*= require_tree .
- *= require_self
+/* = require_tree .
+*= require_self
  */
 
 #singleUser {
@@ -27,7 +27,7 @@
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  height: 'auto';
+  height: auto;
   width: 308px;
   padding: 5px;
 }
