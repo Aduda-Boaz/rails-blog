@@ -1,12 +1,32 @@
-d<h3>Welcome to my first post</h3>
-<div id="postTemp>
-  <%= render partial: "shared/single_user", locals: { user: @user } %>
-  <% @user.post.each do |post| %>
-    <%= render partial: "shared/single_post", locals: { post: post } %>
-    <% post.comments.each do |comment| %>
-         <label><%= comment.text%></label>
-     <% end %>
-  <% end %>
-  <%= button_to "See all posts"%>
+<%= identifier = @posts.first %>
+<%= user = User.find(id = identifier.author_id) %>
+<div class="card">
+  <div class="img">
+    <%= image_tag(@user.photo, width: "130px") %>
+  </div>
+  <div class="user_card">
+    <div class="user_name"><%= @user.name %></div>
+    <div class="user_posts">Posts<%= @user.post_count %></div>
+  </div>
 </div>
 
+<%= @posts.each do |post| %> 
+  <div class="posts">
+    <div class="post_title"><%= post.title %></div>
+    <div class="post_body"><%= post.text %></div>
+    <div class="post_info">
+      <div class="comments_count">Comments: <%= post.comments_count %></div>
+      <div class="likes_count">Likes: <%= post.likes_count %></div>
+    </div>
+
+    <div class="comments">
+    <% post.recent_comments.each do |comment|%>
+      <% name = @users.where(id: comment.author_id ) %>
+      <div class="comment">
+        <div class="comment_name"><%= name.first.name %>: </div>
+        <div class="comment_text"><%= comment.text %></div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+<% end %>
