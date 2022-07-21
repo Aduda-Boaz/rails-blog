@@ -1,12 +1,12 @@
-*= require_tree .
+/*= require_tree .
  *= require_self
  */
 
- #singleUser {
+#singleUser {
   display: flex;
 }
 
- #singleUser > img {
+#singleUser > img {
   border: 1px solid black;
   height: 60px;
   width: 60px;
@@ -23,7 +23,7 @@
   justify-content: space-around;
 }
 
-#singlePost{
+#singlePost {
  border:1px solid black; 
  display: flex;
  flex-direction: column;
@@ -32,19 +32,21 @@
  padding: 5px;
 }
 
-.post_title{
-margin: 5px 0px;
-text-align: left;
-}
-.counters{
-text-align: right;
+.post_title {
+  margin: 5px 0px;
+  text-align: left;
 }
 
-#userTemp{
+.counters {
+  text-align: right;
+}
+
+#userTemp {
  display: flex;
  flex-direction: column;
  align-items: center;
 }
-button{
+
+button {
  margin-top: 20px
 }
