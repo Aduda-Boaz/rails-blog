@@ -1,5 +1,5 @@
-<%= identifier = @posts.first %>
-<%= user = User.find(id = identifier.author_id) %>
+<% identifier = @posts.first %>
+<% user = User.find(id = identifier.author_id) %>
 <div class="card">
   <div class="img">
     <%= image_tag(@user.photo, width: "130px") %>
