@@ -1,12 +1,10 @@
-<% identifier = @posts.first %>
-<% user = User.find(id = identifier.author_id) %>
 <div class="card">
   <div class="img">
-    <%= image_tag(@user.photo, width: "130px") %>
+    <%= image_tag @users.photo, :height => "130px", :width => "130px" %>
   </div>
   <div class="user_card">
-    <div class="user_name"><%= @user.name %></div>
-    <div class="user_posts">Posts<%= @user.post_count %></div>
+    <h1 class="user_name"><%= @user.name %></h1>
+    <div class="user_posts">Posts<%= @user.posts_count %></div>
   </div>
 </div>
 
