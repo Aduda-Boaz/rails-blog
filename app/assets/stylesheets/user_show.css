@@ -1,0 +1,19 @@
+.post_card {
+  border: 1px solid rgb(51, 49, 49);
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.post_top,
+.post_author {
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px;
+}
+
+.post_info {
+  padding-right: 15px;
+  font-size: 14px;
+  display: flex;
+  justify-content: flex-end;
+}

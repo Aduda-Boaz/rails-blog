@@ -1,0 +1,10 @@
+.post_title_info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post_author {
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px;
+}
