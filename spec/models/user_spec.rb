@@ -1,29 +1,30 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { User.new(name: 'Philip', photo: 'https://...', bio: 'physician from Britain') }
-
-  before { subject.save }
+  before :each do
+    @user = User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'physician from Britain', post_count: 0)
+    @user.save
+  end
 
   describe 'Validation' do
     it 'Name must not be empty' do
-      subject.name = ''
-      expect(subject).to_not be_valid
+      @user.name = ''
+      expect(@user).to_not be_valid
     end
   end
 
   it 'Validates the presence of Name' do
-    subject.name = nill
-    expect(subject).to_not be_valid
+    @user.name = nill
+    expect(@user).to_not be_valid
   end
 
   it 'Validates' do
-    post = Post.new(auhtor_id: subject.id, title: 'My first post', body: 'This is my first post')
-    expect(subject.recent_posts).to eq([post])
+    post = Post.new(auhtor_id: @user.id, title: 'My first post', body: 'This is my first post')
+    expect(@user.recent_posts).to eq([post])
   end
 
   it 'Validates the post_count to be an integer' do
-    type = subject.post_count.class
+    type = @user.post_count.class
     expect(type).to eq(Integer)
   end
 end

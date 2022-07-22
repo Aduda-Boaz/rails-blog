@@ -3,7 +3,7 @@
     <li class="card">
         <%= render partial: "shared/user_card", locals: { user: @user } %>
       <button class="btn_user">
-        <%= link_to "User", user_path(user) %>
+        <%= link_to "View", user_path(user) %>
       </button>
     </li>
   <% end %>

@@ -2,14 +2,14 @@
 <% user = User.find(id = identifier.author_id) %>
 
 <div class="card">
-    <% render partial: "shared/user_card", locals: { user: user } %>
+    <% render partial: "shared/user_card", locals: { user: @user } %>
 </div>
 
 <%= @posts.each do |post| %> 
   <div class="posts">
     <% render partial: "shared/post_card", locals: { post: @post } %>
     <button class="btn_user">
-      <%= link_to "User", user_post_path(user, post) %>
+      <%= link_to "View", user_post_path(user, post) %>
     </button>
     <%= render partial: "shared/like", locals: {user: user, post: post}%>
   </div>
