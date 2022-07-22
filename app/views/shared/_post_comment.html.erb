@@ -1,0 +1,9 @@
+<% name = users.where(id: comment.author_id ) %>
+<div class="comment">
+  <div class="comment-header">
+    <%= name.first_name %> 
+  </div>
+  <div class="comment-body">
+    <%= comment.text %>
+  </div>
+</div>
