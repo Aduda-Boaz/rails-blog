@@ -11,6 +11,11 @@ class PostsController < ApplicationController
     @comments = Comment.all
   end
 
+  def new
+    @post = Post.new
+    @user = current_user
+  end
+
   def create
     @post = Post.new(post_params)
     @post.author_id = current_user.id
@@ -24,6 +29,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :text, :photo)
+    params.require(:post).permit(:title, :text)
   end
 end
