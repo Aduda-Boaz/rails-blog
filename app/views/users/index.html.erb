@@ -1,11 +1,9 @@
 <ul>
   <%= @users.each do |user| %>
     <li class="card">
-      <div class="img">
-        <%= render partial: "shared/user_card", locals: { user: user } %>
-      </div>
+        <%= render partial: "shared/user_card", locals: { user: @user } %>
       <button class="btn_user">
-        <%= link_to "Access", user_path(user) %>
+        <%= link_to "User", user_path(user) %>
       </button>
     </li>
   <% end %>

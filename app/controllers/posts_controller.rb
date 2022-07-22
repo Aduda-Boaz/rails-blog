@@ -1,20 +1,35 @@
 class PostsController < ApplicationController
-  @posts = Post.where(author_id: params[:user_id])
-  @comments = Comment.all
-  @users = User.all
+  def index
+    @posts = Post.where(author_id: params[:user_id])
+    @comments = Comment.all
+    @users = User.all
+  end
 
-  validates :title, presence: true, length: { maximum: 250 }
-  validates :comments_count, :likes_count, numericality: { only_integer: true }
+  def show
+    @post = Post.find(params[:id])
+    @comments = Comment.all
+    @users = User.all
+  end
 
-  after_save :update_post_count
+  def new
+    @post = Post.new
+    @user = current_user
+  end
 
-  def recent_comments
-    comments.order(created_at: :desc).limit(5)
+  def create
+    @post = Post.new(post_params)
+    @post.author_id = current_user.id
+
+    if @post.save
+      redirect_to user_posts_path(current_user)
+    else
+      render :new
+    end
   end
 
   private
 
-  def update_post_count
-    user.increment!(:post_count)
+  def post_params
+    params.require(:post).permit(:title, :text)
   end
 end
