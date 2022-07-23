@@ -1,14 +1,15 @@
-.post_card {
-  border: 1px solid rgb(51, 49, 49);
+.user_bio {
+  border: 1px solid rgb(202, 192, 192);
+  width: 60%;
   border-radius: 5px;
   margin: 0 auto;
+  padding: 10px;
 }
 
-.post_top,
-.post_author {
+.user_bio_title,
+.post_count {
   font-size: 16px;
   font-weight: 400;
-  padding: 10px;
 }
 
 .post_info {
@@ -16,4 +17,32 @@
   font-size: 14px;
   display: flex;
   justify-content: flex-end;
+}
+
+.user_posts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px auto;
+  width: 60%;
+  list-style: none;
+  position: relative;
+}
+
+.btn_post {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
 }

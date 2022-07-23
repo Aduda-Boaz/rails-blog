@@ -1,4 +1,11 @@
-.post_title_info {
+.post_card {
+  width: 60%;
+  margin: 30px auto;
+  border: 0.5px solid rgb(202, 192, 192);
+  padding-top: 10px;
+}
+
+.post_top {
   display: flex;
   justify-content: space-between;
 }
@@ -7,4 +14,14 @@
   font-size: 16px;
   font-weight: 400;
   padding: 10px;
+} 
+
+.post_title_info {
+  font-size: 18px;
+  margin: 20px;
+}
+
+.post_text_info {
+  font-size: 16px;
+  margin: 20px;
 }
