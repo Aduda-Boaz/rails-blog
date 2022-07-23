@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 
   def create
     parameters = post_params
-    post = Post.new(author_id: current_user.id, title: parameters[:title], text: parameters[:text], comments_count: 0, 
+    post = Post.new(author_id: current_user.id, title: parameters[:title], text: parameters[:text], comments_count: 0,
                     likes_count: 0)
     post.save
 
