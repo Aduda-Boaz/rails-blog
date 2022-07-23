@@ -31,10 +31,25 @@ In order to run, you need to install RUBY and Rails in your local machine.
 
 Clone the project by typing ```git clone https://github.com/Aduda-Boaz/rails-blog```
 
-### Run app
+Move into project directory
 
-- Type ```bundle install``` in the root file of the project. 
-- Type ```rails s``` in the root file of the project.
+`cd rails-blog`
+
+## Available Scripts
+
+> `bundle install`
+> `rails s`
+> `access to http://localhost:3000/ or http://[::1]:3000 in your local browser`
+
+## Available Scripts to Run Test cases
+
+>Run following command
+
+`gem install rspec`
+
+`rspec --format documentation` or/and
+
+`rspec spec`
 
 ## Authors
 

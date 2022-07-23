@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get "/", to: "base#index"
-
+  root to: "base#index"
+  resources :login
   resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show] do
-      resources :comments, only: [:index, :show]
+    resources :posts, only: [:index, :show, :new, :create] do
+      resources :comments, only: [:new, :create]
+      resources :likes, only: [:create]
     end
   end
 end
