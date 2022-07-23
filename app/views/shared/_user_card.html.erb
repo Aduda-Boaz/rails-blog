@@ -1,8 +1,8 @@
-<div class="user">
-  <img src="<%= user.photo%>" class="photo" alt="photo"/>
-  <div class="name">
-    <div><%= link_to user.name, user_path(user) %></div>
-    <div class="user_posts"># of posts: <%= user.post_count %></div>
-  </div>
+<div class="photo">
+  <%= image = image_tag(user.photo) %>
+</div>
+<div class="card">
+  <div class="user_name"><%= user.name %></div>
+  <div class="user_posts">Number of posts: <%= user.posts_count %></div>
 </div>
 

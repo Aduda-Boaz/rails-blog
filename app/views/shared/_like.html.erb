@@ -1,2 +1,1 @@
-<%= button_to "Like", user_posts_likes_path(user, post), params: {like: {author_id: user.id, post_id: post.id}} %>
-<%= button_to "Dislike", user_posts_dislikes_path(user, post), params: {dislike: {author_id: user.id, post_id: post.id}} %>
+<%= button_to "Like", user_post_likes_path(user, post), params: { like: { author_id: user.id, post_id: post.id}}%>

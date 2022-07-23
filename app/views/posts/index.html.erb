@@ -1,11 +1,22 @@
-< class="card">
-    <%= render partial: "shared/user_card", locals: { user: @user } %>
-<h1 class="posts_title">User Posts</h1>
-<div class="posts">
-    <% render partial: "shared/user_card", locals: { user: @post } %>
-  <% @posts.each do |post| %>
-    <% render partial: "shared/post_card", locals: { post: post } %>
-    <%= render partial: "shared/post_comment", locals: { post: post, user: @user } %>
-  <% end %>
-  <%= button_to "Pagination" %>
+<% identifier = @posts.first %>
+<% user = User.find(id = identifier.author_id) %>
+
+<div class="card">
+  <%= render partial: "shared/user_card", locals: { user: user } %>
 </div>
+
+<% @posts.each do |post| %>
+  <div class="post">
+    <%= render partial: "shared/post_card", locals: { post: post } %>
+    <button class="user_btn">
+      <%= link_to "Access", user_post_path(user, post) %>
+    </button>
+    <%= render partial: "shared/like", locals: {user: user, post: post}%>  
+  </div>
+  
+  <div class="comments">
+    <% post.recent_five_comments.each do |comment|%>
+      <%= render partial: "shared/post_comment", locals: { users: @users, comment: comment} %>
+    <% end %>
+  </div>
+<% end %>

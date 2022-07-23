@@ -1,19 +1,23 @@
-<h1 class="user_post">User posts</h1>
-
-<div class="post_card">
-  <div class="post">
-    <div class="post_top">
-      <h3 class="post_title">Post <%= @post.id %> by <%= @user.name %> </h3>
-      <label class="post_counters">Comments:<%= @post.comments_count %> Likes:<%= @post.likes_count %> </label>
+<% name = @users.where(id: @post.author_id ) %>
+<div class="post_data">
+  <div class="post_top">
+    <div class="post_author">Post by: <%= name.first.name %></div>
+    <div class="post_info">
+      <div class="post_comments">Comments: <%= @post.comments_count  %></div>
+      <div class="post_likes">Likes: <%= @post.likes_count  %></div>
     </div>
-    <p><%= @post.text %></p>
   </div>
-
-  <div class="comments">
-  <% @comments.each do |comment| %>
-    <%= render partial: "shared/user_comment", locals: { comment: comment } %>
-  <% end %>
-  </div>
-  <%= button_to link_to "New-Comment", new_user_post_comment_path(@user.id, @post.id) %>
-  <%= button_to "Add-Likes", user_post_likes_path(@user, @post), params: { like: { author_id: @user.id, post_id: @post.id}}%>
+  <div class="post_title"><%= @post.title  %></div>
+  <div class="post_text"><%= @post.text  %></div>
 </div>
+
+<div class="comments">
+  <% data = @comments.where(post_id: @post.id ) %>
+  <% data.each do |comment| %>
+    <%= render partial: "shared/postComment", locals: { users: @users, comment: comment} %>
+  <% end %>
+  <button class=comment_btn>
+    <%= link_to "Add comment", new_user_post_comment_path(name.first.id, @post.id) %>
+  </button>
+</div>
+<% end %>
