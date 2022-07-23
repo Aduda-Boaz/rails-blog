@@ -1,18 +1,11 @@
 <div class="form">
   <h1>Add new post</h1>
+  <%= render partial: "shared/user_card", locals: { user: @user } %>
   <%= form_with model: @post, url: user_post_path  do |f| %>
-    <div class="form_title">
-      <%= f.label :title  %>
-      <%= f.text_field :title, class: 'title-form'%>
-    </div>
-
-    <div class="text_form">
-      <%= f.label :text %>
-      <%= f.text_area :text, class: 'text-form'%>
-    </div>
-
-    <div class="form_submit">
-      <%= f.submit "Add Post" %>
-    </div>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %><br>
+    <%= f.label :text %><br>
+    <%= f.text_area :text %><br>
+    <%= f.submit %>
   <% end %>
 </div>

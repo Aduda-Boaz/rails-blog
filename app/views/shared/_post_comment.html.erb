@@ -1,9 +1,5 @@
-<% name = users.where(id: comment.author_id ) %>
 <div class="comment">
-  <div class="comment-header">
-    <%= name.first_name %> 
-  </div>
-  <div class="comment-body">
-    <%= comment.text %>
-  </div>
+  <% post.comments.each do |comment| %>
+  <%= render partial: "shared/user_comment", locals: { comment: comment } %>
+  <% end %>
 </div>

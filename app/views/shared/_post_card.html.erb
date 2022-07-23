@@ -1,7 +1,5 @@
-<div class="post_title"><%= post.title %></div>
-<div class="post_body"><%= post.text %></div>
-
 <div class="post_info">
-  <div class="post_comments">Comments: <%= post.comments_count %></div>
-  <div class="post_likes">Likes: <%= post.likes_count %></div>
+  <h3 class="post_title"><%= link_to "Post ##{post.id}", user_post_path(params[:id],post.id) %></h3>
+  <p class="post_text"><%= post.text %></p>
+  <label class="post_label_counts">Comments:<%= post.comments_count %> Likes:<%= post.likes_count %> </label>
 </div>
