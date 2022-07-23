@@ -1,8 +1,8 @@
 <div class="photo">
-  <%= image = image_tag(user.photo) %>
+  <%= image_tag user.photo, :alt => "user_photo", :height => "150px", :width => "150px" %>
 </div>
 <div class="card">
-  <div class="user_name"><%= user.name %></div>
-  <div class="user_posts">Number of posts: <%= user.posts_count %></div>
+  <div class="user_name"><%= link_to user.name, user %></div>
+  <div class="user_posts">Number of posts: <%= user.post_count %></div>
 </div>
 

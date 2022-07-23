@@ -1,7 +1,8 @@
 <ul>
+<h1>Active users</h1>
   <%= @users.each do |user| %>
     <li class="card">
-        <%= render partial: "shared/user_card", locals: { user: @user } %>
+        <%= render partial: "shared/user_card", locals: { user: @users } %>
       <button class="btn_user">
         <%= link_to "View", user_path(user) %>
       </button>
