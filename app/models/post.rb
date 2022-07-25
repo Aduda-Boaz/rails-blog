@@ -4,8 +4,8 @@ class Post < ApplicationRecord
   has_many :likes
 
   validates :title, presence: true, length: { in: 1..250 }
-  validates :comments_count, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :likes_count, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :comment_count, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :like_count, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   after_save :update_post_count
 
@@ -16,6 +16,6 @@ class Post < ApplicationRecord
   private
 
   def update_post_count
-    author.update(posts_count: author.posts.count)
+    user.increment!(:post_count)
   end
 end

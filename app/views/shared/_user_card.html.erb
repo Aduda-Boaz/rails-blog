@@ -1,5 +1,5 @@
 <div class="photo">
-  <%= image_tag user.photo, :alt => "user_photo", :height => "150px", :width => "150px" %>
+  <%= image_tag(user.photo, :alt => "user_photo", :height => "150px", :width => "150px") %>
 </div>
 <div class="card">
   <div class="user_name"><%= link_to user.name, user %></div>
